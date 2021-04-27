@@ -302,7 +302,7 @@ pre_build()
   if [[ $BUILD_TYPE_CMD != '' ]]; then
     eval $BUILD_TYPE_CMD # build type
   fi
-  tg_send "Build started for <code>${BUILD_PRODUCT_NAME}</code>"
+  tg_send "Sir, I started building for <code>${BUILD_PRODUCT_NAME}</code>"
   start_time=$(date +"%s")
 }
 
@@ -610,7 +610,7 @@ if [[ $buildRes == 0 ]]; then # if build succeeded
   fi
   echo -e "${GREEN}Build file: ${BLUE}${PATH_TO_BUILD_FILE}${NC}"
   if [[ $isDry == 0 ]]; then
-    tg_send "Build done for <code>${BUILD_PRODUCT_NAME}</code> in <code>${buildTime}</code>"
+    tg_send "Sir, your build is done for <code>${BUILD_PRODUCT_NAME}</code> in <code>${buildTime}</code>"
   fi
   # push build
   if [[ $isPush == 1 ]]; then
@@ -778,7 +778,7 @@ if [[ $buildRes == 0 ]]; then # if build succeeded
   fi
   # upload build
   if [[ $isUpload == 1 ]]; then
-    tg_send "Uploading <code>${BUILD_PRODUCT_NAME}</code> build"
+    tg_send "Sir, I'm Uploading <code>${BUILD_PRODUCT_NAME}</code> build"
     echo -e "${GREEN}Uploading...${NC}"
     isUploaded=0
     if [[ -f $PATH_TO_BUILD_FILE ]]; then
@@ -812,10 +812,10 @@ if [[ $buildRes == 0 ]]; then # if build succeeded
         if [[ $isFileLinkFailed == 0 ]]; then
           echo -e "${GREEN}Link: ${BLUE}${fileLink}${NC}"
           if [[ $isMD5LinkFailed == 0 ]]; then
-            tg_send "Uploading <code>${BUILD_PRODUCT_NAME}</code> done in \
+            tg_send "Sir, I just finished uploading <code>${BUILD_PRODUCT_NAME}</code>, it took me \
 <code>${buildTime}</code>: <a href=\"${fileLink}\">LINK</a>, <a href=\"${md5Link}\">MD5</a>"
           else
-            tg_send "Uploading <code>${BUILD_PRODUCT_NAME}</code> done in \
+            tg_send "Sir, I just finished uploading <code>${BUILD_PRODUCT_NAME}</code>, it took me \
 <code>${buildTime}</code>: <a href=\"${fileLink}\">LINK</a>"
           fi
           if [[ $UPLOAD_DONE_MSG != '' ]]; then
@@ -888,7 +888,7 @@ fi
 # If build fails:
 if [[ $isSilent == 0 ]]; then
   if [[ -f "${SOURCE_PATH}/out/error.log" ]] && [[ -s "${SOURCE_PATH}/out/error.log" ]]; then
-    tg_send "Build failed after <code>${buildTime}</code>."
+    tg_send "Build failed after <code>${buildTime}</code>. You sucks"
     tg_send "${SOURCE_PATH}/out/error.log"
   else
     echo -e "${RED}Can't find error file. Assuming build got canceled${NC}"
