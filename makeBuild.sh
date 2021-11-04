@@ -312,6 +312,9 @@ init_conf()
 # performes required pre build operations
 pre_build()
 {
+export USE_CCACHE=1
+export CCACHE_EXEC=/usr/bin/ccache
+export CCACHE_DIR=/mnt/ccache
   source "${SOURCE_PATH}/build/envsetup.sh"
   if [[ $isClean == 1 ]]; then
     echo -e "${GREEN}Cleaning build${NC}"
