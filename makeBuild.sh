@@ -818,11 +818,11 @@ if [[ $buildRes == 0 ]]; then # if build succeeded
       fi
     fi
     isMD5Uploaded=0
-    if [[ -f "${PATH_TO_BUILD_FILE}.sha256sum" ]]; then
-      eval "${UPLOAD_CMD} ${PATH_TO_BUILD_FILE}.sha256sum ${UPLOAD_DEST}"
+    if [[ -f "${PATH_TO_BUILD_FILE}.md5sum" ]]; then
+      eval "${UPLOAD_CMD} ${PATH_TO_BUILD_FILE}.md5sum ${UPLOAD_DEST}"
       isMD5Uploaded=1
     else
-      echo -e "${RED}Couldn't find sha256sum file. Not uploading${NC}"
+      echo -e "${RED}Couldn't find md5sum file. Not uploading${NC}"
     fi
     if [[ $isUploaded == 1 ]]; then
       echo -e "${GREEN}Uploaded to: ${BLUE}${UPLOAD_DEST}${NC}"
